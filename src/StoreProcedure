@@ -1,0 +1,40 @@
+use classicmodels;
+
+delimiter //
+create procedure findAllCustomers()
+begin
+    select * from customers;
+end; //
+delimiter ;
+
+call findAllCustomers();
+
+# ko cần để trong nháy
+delimiter //
+drop procedure if exists `findAllCustomers` //
+create procedure findAllCustomers()
+begin
+    select * from customers where customerName = 103;
+end //
+delimiter ;
+
+call findAllCustomers();
+
+delimiter //
+drop procedure if exists `findAllCustomers` //
+create procedure findAllCustomers()
+begin
+    select * from customers;
+end //
+delimiter ;
+
+call findAllCustomers();
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS `findAllCustomers`//
+CREATE PROCEDURE findAllCustomers()
+BEGIN
+    SELECT * FROM customers where customerNumber = 175;
+END //
+
+call findAllCustomers();
